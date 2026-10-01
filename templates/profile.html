@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}Profile | CrackIt{% endblock %}
+
+{% block content %}
+
+<div class="app-layout">
+
+<aside class="sidebar">
+
+<a href="/" class="logo">
+<span class="logo-icon">🎓</span> CrackIt
+</a>
+
+<nav class="side-nav">
+<a href="/dashboard">🏠 Dashboard</a>
+<a href="/exams">🎯 Exams</a>
+<a href="/tests">📝 Mock Tests</a>
+<a href="/materials">📚 Study Materials</a>
+<a href="/roadmap">🗺️ Roadmap</a>
+<a href="/result">📈 Performance</a>
+<a class="active" href="/profile">👤 Profile</a>
+</nav>
+
+<a href="/logout" class="side-nav logout">🚪 Logout</a>
+
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+<strong>Profile</strong>
+<div class="top-user">🔔 <div class="avatar">👩🏻</div></div>
+</header>
+
+
+<div class="page">
+
+<div class="page-heading">
+
+<div>
+<h1>Profile & Notifications</h1>
+<p>Manage your account and stay updated.</p>
+</div>
+
+</div>
+
+
+<div class="profile-grid">
+
+<div class="profile-card">
+
+<div class="profile-head">
+
+<div class="profile-avatar">
+👩🏻
+</div>
+
+<div>
+<h2>{{ user_name }}</h2>
+<p style="color:#718096">
+student@crackit.com
+</p>
+</div>
+
+</div>
+
+
+<div class="info-list">
+
+<div class="info-row">
+<span>Role</span>
+<b>Student</b>
+</div>
+
+<div class="info-row">
+<span>Language</span>
+<b>English</b>
+</div>
+
+<div class="info-row">
+<span>Target Exam</span>
+<b>UPSC Civil Services</b>
+</div>
+
+</div>
+
+<br>
+
+<button class="btn btn-primary">
+Edit Profile
+</button>
+
+</div>
+
+
+<div class="profile-card">
+
+<div class="card-header">
+
+<h3>Recent Notifications</h3>
+
+<a href="#" style="font-size:12px;color:#1464ff">
+View All
+</a>
+
+</div>
+
+
+<div class="notification">
+<div>🟡</div>
+<div>
+<p><b>New current affairs updated</b></p>
+<small>2 hours ago</small>
+</div>
+</div>
+
+
+<div class="notification">
+<div>🔵</div>
+<div>
+<p><b>Your mock test result is ready</b></p>
+<small>5 hours ago</small>
+</div>
+</div>
+
+
+<div class="notification">
+<div>📚</div>
+<div>
+<p><b>Study material added for UPSC</b></p>
+<small>1 day ago</small>
+</div>
+</div>
+
+
+<div class="notification">
+<div>🟠</div>
+<div>
+<p><b>Monthly test will be available soon</b></p>
+<small>2 days ago</small>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+<h3>Language Settings</h3>
+
+<div style="display:flex;gap:10px;margin-top:18px">
+
+<button class="btn btn-primary">English</button>
+<button class="btn btn-outline">हिंदी</button>
+<button class="btn btn-outline">मराठी</button>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+{% endblock %}

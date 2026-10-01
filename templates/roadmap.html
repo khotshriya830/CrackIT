@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Preparation Roadmap | CrackIt{% endblock %}
+
+{% block content %}
+
+<div class="app-layout">
+
+<aside class="sidebar">
+
+<a href="/" class="logo">
+<span class="logo-icon">🎓</span> CrackIt
+</a>
+
+<nav class="side-nav">
+<a href="/dashboard">🏠 Dashboard</a>
+<a href="/exams">🎯 Exams</a>
+<a href="/tests">📝 Mock Tests</a>
+<a href="/materials">📚 Study Materials</a>
+<a class="active" href="/roadmap">🗺️ Roadmap</a>
+<a href="/result">📈 Performance</a>
+<a href="/profile">👤 Profile</a>
+</nav>
+
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+
+<strong>Preparation Roadmap</strong>
+
+<div class="top-user">
+🔔 <div class="avatar">👩🏻</div>
+</div>
+
+</header>
+
+
+<div class="page">
+
+<div class="page-heading">
+
+<div>
+<h1>Your Preparation Roadmap 🗺️</h1>
+<p>A structured path from preparation to selection.</p>
+</div>
+
+</div>
+
+
+<div class="timeline">
+
+{% for stage in stages %}
+
+<div class="stage">
+
+<div class="stage-number">
+{{ loop.index }}
+</div>
+
+<div class="stage-card">
+
+<h3>{{ stage[0] }}</h3>
+
+<p>{{ stage[1] }}</p>
+
+<div class="performance-line">
+
+<span>Progress</span>
+
+<div class="progress">
+<i style="width:{{ stage[2] }}%"></i>
+</div>
+
+<b>{{ stage[2] }}%</b>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+{% endblock %}

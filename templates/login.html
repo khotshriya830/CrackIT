@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Login | CrackIt{% endblock %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-left">
+
+        <div class="logo">
+            <span class="logo-icon">🎓</span>
+            CrackIt
+        </div>
+
+        <h1>Welcome back! 👋</h1>
+
+        <p>
+            Continue your preparation journey.
+            Access exams, study materials, mock tests
+            and your personal performance dashboard.
+        </p>
+
+        <div style="margin-top:35px;font-size:30px;">
+            📚 &nbsp; 📝 &nbsp; 📈 &nbsp; 🎯
+        </div>
+
+    </div>
+
+
+    <div class="auth-right">
+
+        <form class="auth-card" method="POST">
+
+            <h2>Welcome Back!</h2>
+
+            <p>Login to continue your preparation journey.</p>
+
+            <div class="form-group">
+                <label>Name / Username</label>
+                <input name="name"
+                       type="text"
+                       placeholder="Enter your name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password"
+                       placeholder="Enter password"
+                       required>
+            </div>
+
+            <label style="font-size:12px;display:flex;gap:7px;margin-bottom:15px;">
+                <input type="checkbox">
+                Remember me
+            </label>
+
+            <button class="btn btn-primary">
+                Login →
+            </button>
+
+            <div class="auth-bottom">
+                Don't have an account?
+                <a href="/register">Register</a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

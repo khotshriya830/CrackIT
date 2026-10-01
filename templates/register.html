@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Register | CrackIt{% endblock %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-left">
+
+        <div class="logo">
+            <span class="logo-icon">🎓</span>
+            CrackIt
+        </div>
+
+        <h1>Start your journey. 🚀</h1>
+
+        <p>
+            Create your CrackIt account and build a smarter,
+            more organized preparation routine.
+        </p>
+
+        <div style="margin-top:35px;line-height:2;">
+            ✓ Personalized preparation<br>
+            ✓ Mock tests & performance<br>
+            ✓ Exam-wise study resources<br>
+            ✓ Preparation roadmap
+        </div>
+
+    </div>
+
+
+    <div class="auth-right">
+
+        <form class="auth-card" method="POST">
+
+            <h2>Create Your Account</h2>
+
+            <p>Start your journey towards success.</p>
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input name="name"
+                       type="text"
+                       placeholder="Enter full name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email"
+                       placeholder="Enter email"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password"
+                       placeholder="Create password"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password"
+                       placeholder="Confirm password"
+                       required>
+            </div>
+
+            <button class="btn btn-primary">
+                Create Account →
+            </button>
+
+            <div class="auth-bottom">
+                Already have an account?
+                <a href="/login">Login</a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Mock Tests | CrackIt{% endblock %}
+
+{% block content %}
+
+<div class="app-layout">
+
+<aside class="sidebar">
+
+<a href="/" class="logo">
+<span class="logo-icon">🎓</span> CrackIt
+</a>
+
+<nav class="side-nav">
+<a href="/dashboard">🏠 Dashboard</a>
+<a href="/exams">🎯 Exams</a>
+<a class="active" href="/tests">📝 Mock Tests</a>
+<a href="/materials">📚 Study Materials</a>
+<a href="/roadmap">🗺️ Roadmap</a>
+<a href="/result">📈 Performance</a>
+<a href="/profile">👤 Profile</a>
+</nav>
+
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+<input class="search" placeholder="🔎 Search tests...">
+<div class="top-user">🔔 <div class="avatar">👩🏻</div></div>
+</header>
+
+
+<div class="page">
+
+<div class="page-heading">
+<div>
+<h1>Mock Tests</h1>
+<p>Practice regularly and improve your exam performance.</p>
+</div>
+</div>
+
+
+<div class="exam-grid">
+
+{% for test in tests %}
+
+<div class="exam-card">
+
+<div class="exam-card-top">
+<div class="exam-icon">📝</div>
+<span class="badge">{{ test.difficulty }}</span>
+</div>
+
+<h3>{{ test.title }}</h3>
+
+<p>
+Prepare yourself with a timed practice test
+designed for {{ test.exam }}.
+</p>
+
+<div class="exam-meta">
+<span>Questions <b>{{ test.questions }}</b></span>
+<span>Duration <b>{{ test.time }}</b></span>
+<span>Difficulty <b>{{ test.difficulty }}</b></span>
+</div>
+
+<br>
+
+<a href="/test/{{ test.id }}"
+class="btn btn-primary"
+style="width:100%">
+Start Test →
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+{% endblock %}

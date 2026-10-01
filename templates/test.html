@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ exam.name }} - Mock Test | CrackIt</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+
+        body {
+            margin: 0;
+            background: #f5f6fb;
+            font-family: Arial, sans-serif;
+        }
+
+        .test-page {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .test-header {
+            background: linear-gradient(135deg, #17152d, #6c5ce7);
+            color: white;
+            padding: 30px;
+            border-radius: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .test-header h1 {
+            margin: 0 0 8px;
+        }
+
+        .timer {
+            background: white;
+            color: #17152d;
+            padding: 14px 22px;
+            border-radius: 14px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .question-card {
+            background: white;
+            padding: 28px;
+            border-radius: 20px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+        }
+
+        .question-number {
+            color: #6c5ce7;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .question-card h2 {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .option {
+            display: block;
+            border: 2px solid #eee;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .option:hover {
+            border-color: #6c5ce7;
+            background: #f7f5ff;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            background: #17152d;
+            color: white;
+            padding: 17px;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #6c5ce7;
+        }
+
+        .no-question {
+            background: white;
+            padding: 50px;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="test-page">
+
+    <div class="test-header">
+
+        <div>
+            <h1>{{ exam.name }}</h1>
+            <p>CrackIt Mock Test</p>
+        </div>
+
+        <div class="timer">
+            ⏱ <span id="timer">30:00</span>
+        </div>
+
+    </div>
+
+
+    {% if questions %}
+
+    <form method="POST"
+          action="{{ url_for('submit_test', exam_id=exam.id) }}">
+
+        {% for q in questions %}
+
+        <div class="question-card">
+
+            <div class="question-number">
+                Question {{ loop.index }}
+            </div>
+
+            <h2>
+                {{ q.question }}
+            </h2>
+
+
+            <label class="option">
+
+                <input type="radio"
+                       name="question_{{ q.id }}"
+                       value="A">
+
+                <strong>A.</strong>
+                {{ q.option_a }}
+
+            </label>
+
+
+            <label class="option">
+
+                <input type="radio"
+                       name="question_{{ q.id }}"
+                       value="B">
+
+                <strong>B.</strong>
+                {{ q.option_b }}
+
+            </label>
+
+
+            <label class="option">
+
+                <input type="radio"
+                       name="question_{{ q.id }}"
+                       value="C">
+
+                <strong>C.</strong>
+                {{ q.option_c }}
+
+            </label>
+
+
+            <label class="option">
+
+                <input type="radio"
+                       name="question_{{ q.id }}"
+                       value="D">
+
+                <strong>D.</strong>
+                {{ q.option_d }}
+
+            </label>
+
+        </div>
+
+        {% endfor %}
+
+
+        <button type="submit"
+                class="submit-btn">
+
+            Submit Test
+
+        </button>
+
+    </form>
+
+    {% else %}
+
+    <div class="no-question">
+
+        <h2>No questions available</h2>
+
+        <p>
+            Questions for this examination have not been added yet.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+
+<script>
+
+let time = 30 * 60;
+
+const timer = setInterval(function () {
+
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    seconds =
+        seconds < 10
+        ? "0" + seconds
+        : seconds;
+
+    document.getElementById("timer").innerText =
+        minutes + ":" + seconds;
+
+    time--;
+
+    if (time < 0) {
+
+        clearInterval(timer);
+
+        document.querySelector("form").submit();
+
+    }
+
+}, 1000);
+
+</script>
+
+</body>
+
+</html>

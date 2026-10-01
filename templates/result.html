@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block title %}Performance | CrackIt{% endblock %}
+
+{% block content %}
+
+<div class="app-layout">
+
+<aside class="sidebar">
+
+<a href="/" class="logo">
+<span class="logo-icon">🎓</span> CrackIt
+</a>
+
+<nav class="side-nav">
+<a href="/dashboard">🏠 Dashboard</a>
+<a href="/exams">🎯 Exams</a>
+<a href="/tests">📝 Mock Tests</a>
+<a href="/materials">📚 Study Materials</a>
+<a href="/roadmap">🗺️ Roadmap</a>
+<a class="active" href="/result">📈 Performance</a>
+<a href="/profile">👤 Profile</a>
+</nav>
+
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+<strong>Test Result</strong>
+<div class="top-user">🔔 <div class="avatar">👩🏻</div></div>
+</header>
+
+
+<div class="page">
+
+<div class="page-heading">
+<div>
+<h1>Test Result</h1>
+<p>{{ test.title }}</p>
+</div>
+</div>
+
+
+<div class="result-grid">
+
+<div class="card result-score">
+
+<div class="score-circle">
+
+<div class="score-number">
+{{ ((score / total) * 100)|round|int }}%
+</div>
+
+</div>
+
+<h2 style="margin-top:20px">
+Great Work! 🎉
+</h2>
+
+<p style="color:#718096;margin-top:8px">
+Keep practicing to improve your score.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3 style="margin-bottom:25px">
+Performance Overview
+</h3>
+
+<div class="performance-bars">
+
+<div class="performance-line">
+<span>Correct</span>
+<div class="progress">
+<i style="width:82%"></i>
+</div>
+<b>{{ score }}</b>
+</div>
+
+<div class="performance-line">
+<span>Accuracy</span>
+<div class="progress">
+<i style="width:78%"></i>
+</div>
+<b>78%</b>
+</div>
+
+<div class="performance-line">
+<span>Attempted</span>
+<div class="progress">
+<i style="width:92%"></i>
+</div>
+<b>{{ total }}</b>
+</div>
+
+<div class="performance-line">
+<span>Progress</span>
+<div class="progress">
+<i style="width:65%"></i>
+</div>
+<b>65%</b>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<br>
+
+<div class="card">
+
+<h3>Strengths & Weaknesses</h3>
+
+<div class="quick-grid" style="margin-top:18px">
+
+<div class="quick">
+<strong style="color:#18a873">✓ Strengths</strong>
+<small>Polity, Current Affairs</small>
+</div>
+
+<div class="quick">
+<strong style="color:#e34c4c">! Weaknesses</strong>
+<small>Economy, Geography</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Study Materials - CrackIt</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="materials-page">
+
+    <div class="materials-header">
+
+        <div>
+
+            <span class="small-label">
+                CRACKIT LEARNING HUB
+            </span>
+
+            <h1>
+                {{ exam.name }} Study Materials
+            </h1>
+
+            <p>
+                Learn smarter with organized study resources.
+            </p>
+
+        </div>
+
+        <a href="/dashboard" class="back-btn">
+            ← Dashboard
+        </a>
+
+    </div>
+
+
+    <div class="material-grid">
+
+        {% for material in materials %}
+
+        <div class="material-card">
+
+            <div class="material-icon">
+                📚
+            </div>
+
+            <div class="material-type">
+                {{ material.material_type }}
+            </div>
+
+            <h2>
+                {{ material.title }}
+            </h2>
+
+            <p>
+                {{ material.description }}
+            </p>
+
+            <div class="material-footer">
+
+                <span>
+                    {{ material.subject }}
+                </span>
+
+                <button onclick="showMaterial(
+                    `{{ material.content }}`
+                )">
+                    View Material →
+                </button>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="empty-state">
+
+            <h2>No study materials available</h2>
+
+            <p>
+                Study materials will be added soon.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+<script>
+
+function showMaterial(content) {
+
+    alert(content);
+
+}
+
+</script>
+
+</body>
+
+</html>

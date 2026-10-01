@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | CrackIt{% endblock %}
+
+{% block content %}
+
+<div class="app-layout">
+
+    <aside class="sidebar">
+
+        <a href="/" class="logo">
+            <span class="logo-icon">🎓</span>
+            CrackIt
+        </a>
+
+        <div class="user-mini">
+            <div class="avatar">👩🏻</div>
+            <div>
+                <b>{{ user_name }}</b><br>
+                <small>Student</small>
+            </div>
+        </div>
+
+        <nav class="side-nav">
+
+            <a class="active" href="/dashboard">🏠 Dashboard</a>
+            <a href="/exams">🎯 Exams</a>
+            <a href="/tests">📝 Mock Tests</a>
+            <a href="/materials">📚 Study Materials</a>
+            <a href="/roadmap">🗺️ Roadmap</a>
+            <a href="/result">📈 Performance</a>
+            <a href="/profile">🔔 Notifications</a>
+            <a href="/profile">👤 Profile</a>
+
+        </nav>
+
+        <a href="/logout" class="side-nav logout">
+            🚪 Logout
+        </a>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <input class="search"
+                   placeholder="🔎 Search exams...">
+
+            <div class="top-user">
+                <span>🔔</span>
+                <div class="avatar">👩🏻</div>
+            </div>
+
+        </header>
+
+
+        <div class="page">
+
+            <div class="page-heading">
+                <div>
+                    <h1>Good Morning, {{ user_name }}! 👋</h1>
+                    <p>Let's make today count towards your dream.</p>
+                </div>
+
+                <a href="/exams" class="btn btn-primary">
+                    Explore Exams →
+                </a>
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat-card blue">
+                    <div class="stat-top">
+                        Upcoming Exams
+                        <span class="stat-icon">🎯</span>
+                    </div>
+                    <h2>3</h2>
+                </div>
+
+                <div class="stat-card pink">
+                    <div class="stat-top">
+                        Mock Tests Taken
+                        <span class="stat-icon">📝</span>
+                    </div>
+                    <h2>8</h2>
+                </div>
+
+                <div class="stat-card green">
+                    <div class="stat-top">
+                        Average Score
+                        <span class="stat-icon">📊</span>
+                    </div>
+                    <h2>78%</h2>
+                </div>
+
+                <div class="stat-card purple">
+                    <div class="stat-top">
+                        Progress
+                        <span class="stat-icon">🚀</span>
+                    </div>
+                    <h2>65%</h2>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <h3>Performance Overview</h3>
+                        <span>Last 6 tests</span>
+                    </div>
+
+                    <div class="chart">
+                        <div class="bar" style="height:45%"></div>
+                        <div class="bar" style="height:62%"></div>
+                        <div class="bar" style="height:54%"></div>
+                        <div class="bar" style="height:76%"></div>
+                        <div class="bar" style="height:68%"></div>
+                        <div class="bar" style="height:86%"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+
+                    <div class="quick-grid">
+
+                        <a href="/exams" class="quick">
+                            <strong>🔎 Search Exams</strong>
+                            <small>Find your dream exam</small>
+                        </a>
+
+                        <a href="/tests" class="quick">
+                            <strong>📝 Take Mock Test</strong>
+                            <small>Test your preparation</small>
+                        </a>
+
+                        <a href="/materials" class="quick">
+                            <strong>📚 Study Materials</strong>
+                            <small>Notes & PDFs</small>
+                        </a>
+
+                        <a href="/roadmap" class="quick">
+                            <strong>🗺️ View Roadmap</strong>
+                            <small>Plan your journey</small>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

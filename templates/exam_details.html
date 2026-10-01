@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}{{ exam.name }} | CrackIt{% endblock %}
+
+{% block content %}
+
+<div class="app-layout">
+
+<aside class="sidebar">
+
+<a href="/" class="logo">
+<span class="logo-icon">🎓</span> CrackIt
+</a>
+
+<nav class="side-nav">
+<a href="/dashboard">🏠 Dashboard</a>
+<a class="active" href="/exams">🎯 Exams</a>
+<a href="/tests">📝 Mock Tests</a>
+<a href="/materials">📚 Study Materials</a>
+<a href="/roadmap">🗺️ Roadmap</a>
+<a href="/result">📈 Performance</a>
+<a href="/profile">👤 Profile</a>
+</nav>
+
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+<a href="/exams">← Back to Exams</a>
+<div class="top-user">🔔 <div class="avatar">👩🏻</div></div>
+</header>
+
+
+<div class="page">
+
+<div class="details-hero">
+
+<div style="font-size:45px">{{ exam.icon }}</div>
+
+<h1>{{ exam.name }}</h1>
+
+<p>{{ exam.description }}</p>
+
+<br>
+
+<a href="/tests" class="btn"
+style="background:white;color:#1464ff">
+Start Mock Test →
+</a>
+
+</div>
+
+
+<div class="tabs">
+<div class="tab active">Overview</div>
+<div class="tab">Eligibility</div>
+<div class="tab">Exam Pattern</div>
+<div class="tab">Syllabus</div>
+<div class="tab">Selection Process</div>
+</div>
+
+
+<div class="details-grid">
+
+<div class="card">
+
+<h3 style="margin-bottom:20px">Exam Information</h3>
+
+<div class="info-list">
+
+<div class="info-row">
+<span>Conducting Body</span>
+<b>Government Examination Authority</b>
+</div>
+
+<div class="info-row">
+<span>Qualification</span>
+<b>{{ exam.qualification }}</b>
+</div>
+
+<div class="info-row">
+<span>Age Limit</span>
+<b>{{ exam.age }}</b>
+</div>
+
+<div class="info-row">
+<span>Exam Pattern</span>
+<b>{{ exam.pattern }}</b>
+</div>
+
+<div class="info-row">
+<span>Vacancies</span>
+<b>Varies every year</b>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3 style="margin-bottom:20px">Eligibility</h3>
+
+<p style="line-height:1.8;color:#64748b;font-size:13px">
+✓ Educational qualification satisfied<br><br>
+✓ Age criteria applicable<br><br>
+✓ Category-wise relaxation as applicable<br><br>
+✓ Check official notification before applying
+</p>
+
+<br>
+
+<a href="/materials" class="btn btn-primary"
+style="width:100%">
+Study Materials →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+{% endblock %}

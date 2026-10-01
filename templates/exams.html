@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Competitive Exams | CrackIt{% endblock %}
+
+{% block content %}
+
+<div class="app-layout">
+
+<aside class="sidebar">
+
+<a href="/" class="logo">
+<span class="logo-icon">🎓</span> CrackIt
+</a>
+
+<nav class="side-nav">
+<a href="/dashboard">🏠 Dashboard</a>
+<a class="active" href="/exams">🎯 Exams</a>
+<a href="/tests">📝 Mock Tests</a>
+<a href="/materials">📚 Study Materials</a>
+<a href="/roadmap">🗺️ Roadmap</a>
+<a href="/result">📈 Performance</a>
+<a href="/profile">👤 Profile</a>
+</nav>
+
+<a href="/logout" class="side-nav logout">🚪 Logout</a>
+
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+<input class="search" placeholder="🔎 Search exams...">
+<div class="top-user">🔔 <div class="avatar">👩🏻</div></div>
+</header>
+
+
+<div class="page">
+
+<div class="page-heading">
+<div>
+<h1>Competitive Exams</h1>
+<p>Explore government and entrance examinations.</p>
+</div>
+</div>
+
+
+<form class="filter-bar">
+
+<input
+name="search"
+value="{{ search }}"
+placeholder="Search by exam name or category...">
+
+<select name="category">
+
+<option value="">All Categories</option>
+
+{% for category in categories %}
+<option value="{{ category }}"
+{% if selected_category == category %}selected{% endif %}>
+{{ category }}
+</option>
+{% endfor %}
+
+</select>
+
+<button class="btn btn-primary">Search</button>
+
+</form>
+
+
+<div class="exam-grid">
+
+{% for exam in exams %}
+
+<div class="exam-card">
+
+<div class="exam-card-top">
+
+<div class="exam-icon">{{ exam.icon }}</div>
+
+<span class="badge">
+{{ exam.category }}
+</span>
+
+</div>
+
+<h3>{{ exam.name }}</h3>
+
+<p>{{ exam.description }}</p>
+
+<div class="exam-meta">
+
+<span>
+Qualification
+<b>{{ exam.qualification }}</b>
+</span>
+
+<span>
+Age
+<b>{{ exam.age }}</b>
+</span>
+
+<span>
+Pattern
+<b>{{ exam.pattern }}</b>
+</span>
+
+</div>
+
+<br>
+
+<a href="/exam/{{ exam.id }}"
+class="btn btn-primary"
+style="width:100%">
+View Details →
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+{% endblock %}
