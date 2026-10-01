@@ -2331,7 +2331,7 @@ def dashboard():
     <div class="greeting">
 
         <div>
-            <h1>Good Morning, {name}! 👋</h1>
+            <h1>Hi, {name}! 👋</h1>
 
             <p>
                 Here's your preparation overview for today.
